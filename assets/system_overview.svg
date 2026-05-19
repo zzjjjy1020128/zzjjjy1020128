@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="430" viewBox="0 0 1180 430" role="img" aria-labelledby="title desc">
+  <title id="title">FOU-centered Stereo-ToF FPGA system overview</title>
+  <desc id="desc">A public-facing overview of the project from sensor evidence to an FPGA-aligned depth output.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L8,3 z" fill="#334155"/>
+    </marker>
+    <linearGradient id="depth" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="0.55" stop-color="#14b8a6"/>
+      <stop offset="1" stop-color="#facc15"/>
+    </linearGradient>
+  </defs>
+  <rect width="1180" height="430" rx="24" fill="#f8fafc"/>
+  <text x="42" y="54" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="28" font-weight="700" fill="#0f172a">FOU-Centered Stereo-ToF Fusion on FPGA</text>
+  <text x="42" y="86" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" fill="#475569">Public overview: model design, strict quantization, FPGA-oriented deployment, and RTL-visible validation.</text>
+
+  <g transform="translate(42 130)">
+    <rect width="190" height="118" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="22" y="34" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#0f172a">Sensor Evidence</text>
+    <text x="22" y="63" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" fill="#475569">Stereo RGB</text>
+    <text x="22" y="86" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" fill="#475569">ToF depth cues</text>
+    <circle cx="150" cy="76" r="22" fill="#dbeafe"/>
+    <circle cx="163" cy="76" r="22" fill="#ccfbf1"/>
+  </g>
+
+  <g transform="translate(292 130)">
+    <rect width="220" height="118" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="22" y="34" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#0f172a">FOU-STFNet</text>
+    <text x="22" y="63" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" fill="#475569">Feature extraction</text>
+    <text x="22" y="86" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" fill="#475569">Correlation and confidence</text>
+    <rect x="154" y="50" width="42" height="42" rx="8" fill="#e0f2fe" stroke="#38bdf8"/>
+  </g>
+
+  <g transform="translate(572 130)">
+    <rect width="220" height="118" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="22" y="34" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#0f172a">StrictQAT Export</text>
+    <text x="22" y="63" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" fill="#475569">Quantized checkpoint</text>
+    <text x="22" y="86" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" fill="#475569">FPGA-consumable assets</text>
+    <path d="M164 50 h28 v42 h-28 z" fill="#fef3c7" stroke="#f59e0b"/>
+  </g>
+
+  <g transform="translate(852 130)">
+    <rect width="190" height="118" rx="14" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="22" y="34" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#0f172a">FOU-Acc</text>
+    <text x="22" y="63" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" fill="#475569">Runtime planning</text>
+    <text x="22" y="86" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" fill="#475569">PL accelerator path</text>
+    <rect x="135" y="52" width="34" height="34" rx="6" fill="#ede9fe" stroke="#8b5cf6"/>
+  </g>
+
+  <g transform="translate(440 306)">
+    <rect width="300" height="72" rx="14" fill="url(#depth)" opacity="0.95"/>
+    <text x="24" y="32" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#ffffff">FPGA-aligned depth output</text>
+    <text x="24" y="55" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#eff6ff">Representative deployment visualization and consistency evidence</text>
+  </g>
+
+  <path d="M232 189 H286" fill="none" stroke="#334155" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <path d="M512 189 H566" fill="none" stroke="#334155" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <path d="M792 189 H846" fill="none" stroke="#334155" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <path d="M947 248 C930 292,790 330,746 342" fill="none" stroke="#334155" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <path d="M440 342 C366 326,270 289,226 248" fill="none" stroke="#334155" stroke-width="2.4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(830 318)">
+    <rect width="250" height="40" rx="20" fill="#ecfeff" stroke="#67e8f9"/>
+    <text x="22" y="26" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="700" fill="#155e75">43-layer RTL closure path</text>
+  </g>
+</svg>
