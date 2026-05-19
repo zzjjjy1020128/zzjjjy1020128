@@ -39,7 +39,7 @@ used to inspect consistency against the deployment reference path.
 | RTL validation | A full-layer verification path with runtime contract checks and post-simulation closure. |
 
 <p align="center">
-  <img src="assets/system_overview.svg" alt="FOU-centered Stereo-ToF FPGA system overview" width="920">
+  <img src="assets/system_overview_v2.svg" alt="FOU-centered Stereo-ToF FPGA system overview" width="920">
 </p>
 
 ## Engineering Highlights
@@ -58,7 +58,7 @@ used to inspect consistency against the deployment reference path.
   deployment boundary.
 
 <p align="center">
-  <img src="assets/traceability_flow.svg" alt="Algorithm-to-FPGA deployment traceability flow" width="920">
+  <img src="assets/traceability_flow_v2.svg" alt="Algorithm-to-FPGA deployment traceability flow" width="920">
 </p>
 
 ## Current Publication Boundary

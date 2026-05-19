@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="390" viewBox="0 0 1180 390" role="img" aria-labelledby="title desc">
+  <title id="title">Stereo-ToF FPGA deployment path</title>
+  <desc id="desc">A simplified public overview of the end-to-end Stereo-ToF FPGA deployment path.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L8,3 z" fill="#334155"/>
+    </marker>
+    <linearGradient id="depth" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2563eb"/>
+      <stop offset="0.55" stop-color="#14b8a6"/>
+      <stop offset="1" stop-color="#facc15"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1180" height="390" rx="24" fill="#f8fafc"/>
+  <text x="56" y="58" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="28" font-weight="700" fill="#0f172a">Stereo-ToF FPGA Deployment Path</text>
+  <text x="56" y="92" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" fill="#475569">Compact public view of the system boundary, from sensor evidence to FPGA-aligned depth output.</text>
+
+  <g transform="translate(78 162)">
+    <rect width="158" height="90" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="24" y="38" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#0f172a">Inputs</text>
+    <text x="24" y="62" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#475569">RGB + ToF</text>
+  </g>
+
+  <g transform="translate(303 162)">
+    <rect width="158" height="90" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="24" y="38" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#0f172a">Model</text>
+    <text x="24" y="62" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#475569">FOU-STFNet</text>
+  </g>
+
+  <g transform="translate(528 162)">
+    <rect width="158" height="90" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="24" y="38" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#0f172a">StrictQAT</text>
+    <text x="24" y="62" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#475569">FPGA assets</text>
+  </g>
+
+  <g transform="translate(753 162)">
+    <rect width="158" height="90" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="24" y="38" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#0f172a">Runtime</text>
+    <text x="24" y="62" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#475569">FOU-Acc path</text>
+  </g>
+
+  <g transform="translate(978 162)">
+    <rect width="126" height="90" rx="14" fill="url(#depth)" stroke="#0f766e" stroke-width="2"/>
+    <text x="24" y="38" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#ffffff">Depth</text>
+    <text x="24" y="62" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#ecfeff">Output</text>
+  </g>
+
+  <path d="M236 207 H296" fill="none" stroke="#334155" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <path d="M461 207 H521" fill="none" stroke="#334155" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <path d="M686 207 H746" fill="none" stroke="#334155" stroke-width="2.4" marker-end="url(#arrow)"/>
+  <path d="M911 207 H971" fill="none" stroke="#334155" stroke-width="2.4" marker-end="url(#arrow)"/>
+
+  <g transform="translate(230 304)">
+    <rect width="720" height="46" rx="23" fill="#ecfeff" stroke="#67e8f9"/>
+    <text x="40" y="29" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="14" font-weight="700" fill="#155e75">160x160 @ 250 FPS | 31.08 mm MAE | 43-layer RTL-visible closure</text>
+  </g>
+</svg>
