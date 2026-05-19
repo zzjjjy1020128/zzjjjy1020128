@@ -1,52 +1,58 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1180" height="360" viewBox="0 0 1180 360" role="img" aria-labelledby="title desc">
-  <title id="title">Algorithm-to-FPGA deployment traceability flow</title>
-  <desc id="desc">A public-facing traceability flow from training to export, runtime consumption, RTL verification, and reporting.</desc>
+  <title id="title">Algorithm-to-FPGA traceability flow</title>
+  <desc id="desc">A simplified public traceability flow from training to public evidence.</desc>
   <defs>
     <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
       <path d="M0,0 L0,6 L8,3 z" fill="#475569"/>
     </marker>
   </defs>
+
   <rect width="1180" height="360" rx="24" fill="#ffffff"/>
-  <text x="42" y="54" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="26" font-weight="700" fill="#0f172a">Algorithm-to-FPGA Traceability</text>
-  <text x="42" y="84" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" fill="#475569">A shared deployment state links training, export, runtime, RTL verification, and public evidence.</text>
+  <text x="52" y="58" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="28" font-weight="700" fill="#0f172a">Algorithm-to-FPGA Traceability</text>
+  <text x="52" y="88" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="15" fill="#475569">Public view: the same deployment state is followed across training, export, runtime, RTL, and results.</text>
 
-  <g transform="translate(42 132)">
-    <rect width="174" height="88" rx="14" fill="#f1f5f9" stroke="#cbd5e1"/>
-    <text x="22" y="34" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700" fill="#0f172a">Training</text>
-    <text x="22" y="60" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#475569">Float -> QAT -> StrictQAT</text>
-  </g>
-  <g transform="translate(266 132)">
-    <rect width="174" height="88" rx="14" fill="#eff6ff" stroke="#bfdbfe"/>
-    <text x="22" y="34" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700" fill="#0f172a">Export</text>
-    <text x="22" y="60" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#475569">Quantized assets</text>
-  </g>
-  <g transform="translate(490 78)">
-    <rect width="210" height="88" rx="14" fill="#ecfeff" stroke="#a5f3fc"/>
-    <text x="22" y="34" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700" fill="#0f172a">Runtime/API</text>
-    <text x="22" y="60" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#475569">Planning and boundary checks</text>
-  </g>
-  <g transform="translate(490 210)">
-    <rect width="210" height="88" rx="14" fill="#fef3c7" stroke="#fde68a"/>
-    <text x="22" y="34" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700" fill="#0f172a">RTL Verification</text>
-    <text x="22" y="60" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#475569">Simulation and closure</text>
-  </g>
-  <g transform="translate(760 132)">
-    <rect width="190" height="88" rx="14" fill="#f5f3ff" stroke="#ddd6fe"/>
-    <text x="22" y="34" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700" fill="#0f172a">Evidence</text>
-    <text x="22" y="60" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#475569">43/43 closure status</text>
-  </g>
-  <g transform="translate(1000 132)">
-    <rect width="138" height="88" rx="14" fill="#f0fdf4" stroke="#bbf7d0"/>
-    <text x="22" y="34" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="16" font-weight="700" fill="#0f172a">Showcase</text>
-    <text x="22" y="60" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#475569">Depth results</text>
+  <g transform="translate(60 148)">
+    <rect width="150" height="86" rx="14" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="26" y="38" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#0f172a">Training</text>
+    <text x="26" y="62" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#475569">StrictQAT</text>
   </g>
 
-  <path d="M216 176 H260" fill="none" stroke="#475569" stroke-width="2.2" marker-end="url(#arrow)"/>
-  <path d="M440 176 C458 152,465 126,484 122" fill="none" stroke="#475569" stroke-width="2.2" marker-end="url(#arrow)"/>
-  <path d="M440 176 C458 202,465 234,484 252" fill="none" stroke="#475569" stroke-width="2.2" marker-end="url(#arrow)"/>
-  <path d="M700 122 C724 132,736 150,754 171" fill="none" stroke="#475569" stroke-width="2.2" marker-end="url(#arrow)"/>
-  <path d="M700 252 C724 240,738 216,754 184" fill="none" stroke="#475569" stroke-width="2.2" marker-end="url(#arrow)"/>
-  <path d="M950 176 H994" fill="none" stroke="#475569" stroke-width="2.2" marker-end="url(#arrow)"/>
+  <g transform="translate(265 148)">
+    <rect width="150" height="86" rx="14" fill="#eff6ff" stroke="#bfdbfe" stroke-width="2"/>
+    <text x="26" y="38" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#0f172a">Export</text>
+    <text x="26" y="62" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#475569">FPGA assets</text>
+  </g>
 
-  <text x="42" y="314" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#64748b">Public boundary: this diagram describes the evidence chain only. Source code, model assets, exact commands, and internal run names are intentionally withheld before publication.</text>
+  <g transform="translate(470 94)">
+    <rect width="170" height="86" rx="14" fill="#ecfeff" stroke="#a5f3fc" stroke-width="2"/>
+    <text x="28" y="38" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#0f172a">Runtime</text>
+    <text x="28" y="62" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#475569">API boundary</text>
+  </g>
+
+  <g transform="translate(470 218)">
+    <rect width="170" height="86" rx="14" fill="#fef3c7" stroke="#fde68a" stroke-width="2"/>
+    <text x="28" y="38" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#0f172a">RTL</text>
+    <text x="28" y="62" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#475569">Closure</text>
+  </g>
+
+  <g transform="translate(700 148)">
+    <rect width="170" height="86" rx="14" fill="#f5f3ff" stroke="#ddd6fe" stroke-width="2"/>
+    <text x="28" y="38" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#0f172a">Evidence</text>
+    <text x="28" y="62" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#475569">43/43 checks</text>
+  </g>
+
+  <g transform="translate(930 148)">
+    <rect width="170" height="86" rx="14" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="2"/>
+    <text x="28" y="38" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="18" font-weight="700" fill="#0f172a">Showcase</text>
+    <text x="28" y="62" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#475569">Depth results</text>
+  </g>
+
+  <path d="M210 191 H258" fill="none" stroke="#475569" stroke-width="2.3" marker-end="url(#arrow)"/>
+  <path d="M415 191 C440 174,450 146,464 137" fill="none" stroke="#475569" stroke-width="2.3" marker-end="url(#arrow)"/>
+  <path d="M415 191 C440 211,450 244,464 260" fill="none" stroke="#475569" stroke-width="2.3" marker-end="url(#arrow)"/>
+  <path d="M640 137 C670 146,682 168,694 186" fill="none" stroke="#475569" stroke-width="2.3" marker-end="url(#arrow)"/>
+  <path d="M640 260 C670 250,682 219,694 198" fill="none" stroke="#475569" stroke-width="2.3" marker-end="url(#arrow)"/>
+  <path d="M870 191 H923" fill="none" stroke="#475569" stroke-width="2.3" marker-end="url(#arrow)"/>
+
+  <text x="52" y="324" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" fill="#64748b">Implementation details remain private during paper review; this diagram only states the public evidence boundary.</text>
 </svg>
