@@ -13,6 +13,13 @@ fusion network to an FPGA-oriented deployment path. The work spans model design,
 StrictQAT training, export of FPGA-consumable assets, runtime/API boundary
 alignment, and RTL-visible verification closure.
 
+| Current public metric | Value |
+| --- | --- |
+| FPGA inference throughput | **160x160 @ 250 FPS** |
+| Best recorded test accuracy | **31.08 mm MAE / 58.41 mm RMSE** |
+| Evaluation note | Full test split, 240 samples, millimeter-scale depth error |
+| Verification boundary | 43-layer runtime contract and post-simulation closure |
+
 <p align="center">
   <img src="assets/rtl_depth_showcase.png" alt="Representative RTL-aligned depth visualization" width="920">
 </p>
@@ -43,6 +50,8 @@ used to inspect consistency against the deployment reference path.
   baseline references.
 - Established a traceability path across training, export, runtime/API
   consumption, RTL simulation, and result reporting.
+- Reached a current FPGA inference throughput of 160x160 @ 250 FPS.
+- Recorded a best full-split test result of 31.08 mm MAE / 58.41 mm RMSE.
 - Maintained a 43-layer RTL verification closure path for representative
   full-network runs.
 - Produced visual depth reconstruction evidence that is inspectable at the

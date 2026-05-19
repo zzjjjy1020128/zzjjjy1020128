@@ -22,6 +22,16 @@ The project currently emphasizes:
   verification.
 - Qualitative depth reconstruction evidence from the deployment-facing path.
 
+## Public Metrics
+
+Current public-facing measurements:
+
+| Metric | Value | Scope |
+| --- | --- | --- |
+| FPGA inference throughput | 160x160 @ 250 FPS | Current deployment-facing throughput point |
+| Test accuracy | 31.08 mm MAE / 58.41 mm RMSE | Best recorded full test split result, 240 samples |
+| Verification closure | 43-layer runtime contract and post-simulation closure | Representative full-network RTL-visible path |
+
 ## Evidence Boundary
 
 The strongest public claim is not a single accuracy number. It is the fact that
