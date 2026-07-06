@@ -1,9 +1,9 @@
 # Project Brief: FOU-Centered Stereo-ToF Fusion on FPGA
 
 This project explores how a Stereo-ToF depth estimation network can be designed
-with FPGA deployment in mind from the beginning. The central idea is to keep the
-model, quantization behavior, runtime contract, and RTL-visible verification
-path aligned through a shared deployment boundary.
+with FPGA deployment in mind from the beginning. The central idea is to keep
+model design, quantized deployment behavior, runtime contracts, RTL-visible
+verification, and board measurement aligned through one deployment boundary.
 
 ## Public Scope
 
@@ -13,39 +13,43 @@ reproducibility package.
 
 The project currently emphasizes:
 
-- Stereo-ToF fusion for depth estimation.
-- A lightweight FPGA-aligned operator framing.
-- Progressive training through floating point, QAT, and StrictQAT stages.
-- Export of deployment assets that can be consumed by FPGA-side runtime paths.
-- Runtime/API contract alignment.
+- Stereo-ToF fusion for 160x160 depth estimation.
+- A lightweight FPGA-aligned operator and accelerator path.
+- FP32-to-PTQ/INT8 deployment with FPGA-consumable assets.
+- Runtime/API contract alignment for board execution.
 - RTL simulation and post-simulation closure for representative full-network
   verification.
-- Qualitative depth reconstruction evidence from the deployment-facing path.
+- Vivado-routed implementation evidence on a ZU9EG-class FPGA target.
+- Board-side runtime measurement and qualitative multi-scene depth outputs.
 
 ## Public Metrics
 
 Current public-facing measurements:
 
 | Metric | Value | Scope |
-| --- | --- | --- |
-| FPGA inference throughput | 160x160 @ 250 FPS | Current deployment-facing throughput point |
-| Test accuracy | 31.08 mm MAE / 58.41 mm RMSE | Best recorded full test split result, 240 samples |
-| Verification closure | 43-layer runtime contract and post-simulation closure | Representative full-network RTL-visible path |
+| --- | ---: | --- |
+| FPGA runtime | 4.195 ms / 238.4 FPS | INT8 FOU-Acc at the reported 200 MHz FPGA operating point |
+| FP32 depth accuracy | 31.08 mm MAE / 58.41 mm RMSE | Full local evaluation split, 240 samples |
+| Board-vs-FP32 fidelity | 15.06 mm mean abs / 58.59 mm p95 abs | Representative S1-S5 board scene set |
+| FPGA resource occupancy | LUT/FF/DSP/BRAM 71.33/20.76/53.37/52.69% | ZU9EG-class Vivado-routed implementation |
+| Power estimate | 4.423 W | Vivado post-route on-chip estimate |
+| Verification closure | 43-layer runtime contract, RTL/post-sim checks, and board latency-quality sync | Deployment-facing validation path |
 
 ## Evidence Boundary
 
 The strongest public claim is not a single accuracy number. It is the fact that
 the project connects several normally separate stages:
 
-1. algorithm training
-2. strict quantized export
+1. algorithm training and FP32 reference quality
+2. quantized deployment asset export
 3. FPGA runtime consumption
-4. RTL simulation
-5. post-simulation verification
-6. visual depth reconstruction inspection
+4. RTL simulation and post-simulation inspection
+5. Vivado implementation and resource/power reporting
+6. board runtime measurement
+7. multi-scene visual depth-output inspection
 
-This makes the work closer to a full deployment pipeline than to a standalone
-neural-network experiment.
+This makes the work closer to a full model-to-board deployment pipeline than to
+a standalone neural-network experiment.
 
 ## Non-Public Material
 
