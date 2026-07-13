@@ -20,7 +20,7 @@ RTL/post-simulation checks, Vivado implementation, and board-side measurement.
 | Board-vs-FP32 fidelity | **15.06 mm mean abs / 58.59 mm p95 abs** | Representative S1-S5 board scene set |
 | Routed FPGA cost | **71.33% LUT / 20.76% FF / 53.37% DSP / 52.69% BRAM** | ZU9EG-class implementation, Vivado post-route |
 | Power estimate | **4.423 W** | Vivado post-route on-chip estimate |
-| Verification boundary | **43-layer runtime contract + RTL/post-sim + board latency-quality sync** | Deployment-facing validation path |
+| Validation path | **43-layer runtime contract + RTL/post-sim + board latency-quality sync** | Deployment-facing model-to-board checks |
 
 <p align="center">
   <img src="assets/multiscene_fp32_ptq_board_showcase.png" alt="Multi-scene Stereo-ToF FPGA depth results comparing ToF, FP32, PTQ, board output, and error maps" width="980">
@@ -39,15 +39,50 @@ absolute-error views in millimeters.
 | Runtime integration | Board API/runtime path that consumes exported assets while preserving tensor and layer contracts. |
 | RTL validation | Full-network 43-layer runtime-contract checks and post-simulation result inspection. |
 | FPGA implementation | Vivado-routed accelerator implementation with reported resource and power estimates. |
-| Board evidence | Board-side runtime measurement and multi-scene depth-output fidelity checks. |
+| Board evidence | Board-side runtime measurement, multi-scene depth-output fidelity checks, and layer-level execution profiling. |
+
+## Layer-Level FPGA Mapping
+
+The deployed network is represented as a 43-layer hardware contract rather than
+as an opaque model blob. I use layer-level mapping statistics to check how the
+network fits the accelerator's padded-channel execution geometry.
+
+| Mapping statistic | Value |
+| --- | ---: |
+| Full-payload layers | **34 / 43** |
+| Mean channel payload ratio | **86.75%** |
+| Operation-weighted payload ratio | **88.55%** |
+| Dominant cfg mode | **m=3, 28 layers** |
+
+<p align="center">
+  <img src="assets/layer_array_utilization_estimate.png" alt="Layer-level padded-channel payload ratio and cfg_mode distribution for the 43-layer FPGA contract" width="920">
+</p>
+
+## Board-Level Execution Profiling
+
+Beyond output quality and aggregate runtime, the board run is profiled as a
+complete 43-layer execution timeline. This makes the accelerator behavior
+inspectable at the same granularity as the exported deployment contract.
+
+<p align="center">
+  <img src="assets/board_full43_layer_timeline.png" alt="Board-derived full 43-layer internal execution timeline" width="920">
+</p>
+
+The per-layer duration view makes the execution hotspots visible directly:
+cost-volume layers dominate the active window, while the L/R/ToF and confidence
+branches have distinct timing signatures.
+
+<p align="center">
+  <img src="assets/board_per_layer_active_duration.png" alt="Board-derived per-layer active duration across the 43-layer FPGA execution" width="920">
+</p>
 
 ## Technical Focus
 
 - FPGA acceleration for neural-network inference and depth perception.
 - Quantized model deployment across algorithm, runtime, RTL, and board layers.
 - Hardware/software contract design for reproducible model-to-FPGA execution.
-- Evidence-driven validation: reference comparison, RTL/post-sim inspection,
-  routed implementation reports, and board-side measurement.
+- Layer-level analysis: hardware-contract mapping, execution timeline
+  visualization, and per-layer board profiling.
 
 <p align="center">
   <img src="assets/system_overview_v2.svg" alt="FOU-centered Stereo-ToF FPGA system overview" width="920">
@@ -71,11 +106,11 @@ absolute-error views in millimeters.
   <img src="assets/traceability_flow_v2.svg" alt="Algorithm-to-FPGA deployment traceability flow" width="920">
 </p>
 
-## Current Publication Boundary
+## Availability
 
 The implementation repository is currently private while the related paper is
 under preparation/review. To protect unpublished methods and engineering
-details, this public profile intentionally does not include:
+details, this public profile keeps the following material private for now:
 
 - source code
 - training or export commands
